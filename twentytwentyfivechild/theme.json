@@ -1,104 +1,87 @@
-  /*
-  Theme Name: Simplified WP
-  Template: twentytwentyfive
-  Version: 1.0.0
-  Description: Portfolio child theme of Twenty Twenty-Five. Custom CSS system owns all visual    
-  design.
-  Text Domain: simplified-wp
-  */
-
-  ---
-  File 2: theme.json
-
-  Path: simplified-wp/theme.json
-  This is a new file — the complete token definition layer.
-
-  {
-    "$schema": "https://schemas.wp.org/trunk/theme.json",
-    "version": 3,
-    "settings": {
-      "color": {
-        "custom": false,
-        "customGradient": false,
-        "defaultPalette": false,
-        "defaultGradients": false,
-        "palette": [
-          { "slug": "primary", "color": "#2563eb", "name": "Primary" },
-          { "slug": "secondary", "color": "#475569", "name": "Secondary" },
-          { "slug": "accent", "color": "#f59e0b", "name": "Accent" },
-          { "slug": "foreground", "color": "#1e293b", "name": "Foreground" },
-          { "slug": "background", "color": "#ffffff", "name": "Background" },
-          { "slug": "muted", "color": "#f1f5f9", "name": "Muted" }
-        ]
-      },
-      "typography": {
-        "customFontSize": false,
-        "fontFamilies": [
-          {
-            "fontFamily": "Lexend, sans-serif",
-            "slug": "lexend",
-            "name": "Lexend",
-            "fontFace": [
-              {
-                "fontFamily": "Lexend",
-                "fontWeight": "100 900",
-                "fontStyle": "normal",
-                "src": [
-                  "file:./assets/fonts/Lexend-VariableFont_wght.woff2"
-                ]
-              }
-            ]
-          }
-        ],
-        "fontSizes": [
-          { "slug": "small", "size": "0.875rem", "name": "Small" },
-          { "slug": "medium", "size": "1rem", "name": "Medium" },
-          { "slug": "large", "size": "1.25rem", "name": "Large" },
-          { "slug": "x-large", "size": "2rem", "name": "X-Large" },
-          { "slug": "xx-large", "size": "3.5rem", "name": "XX-Large" }
-        ]
-      },
-      "spacing": {
-        "customSpacingSize": false,
-        "spacingSizes": [
-          { "slug": "20", "size": "0.5rem", "name": "2XS" },
-          { "slug": "30", "size": "1rem", "name": "XS" },
-          { "slug": "40", "size": "1.5rem", "name": "Small" },
-          { "slug": "50", "size": "2rem", "name": "Medium" },
-          { "slug": "60", "size": "3rem", "name": "Large" },
-          { "slug": "70", "size": "4rem", "name": "XL" },
-          { "slug": "80", "size": "6rem", "name": "2XL" }
-        ]
-      },
-      "layout": {
-        "contentSize": "800px",
-        "wideSize": "1280px"
-      },
-      "appearanceTools": true
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "color": {
+      "custom": false,
+      "customGradient": false,
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "palette": [
+        { "slug": "primary", "color": "#2563eb", "name": "Primary" },
+        { "slug": "secondary", "color": "#475569", "name": "Secondary" },
+        { "slug": "accent", "color": "#f59e0b", "name": "Accent" },
+        { "slug": "foreground", "color": "#1e293b", "name": "Foreground" },
+        { "slug": "background", "color": "#ffffff", "name": "Background" },
+        { "slug": "muted", "color": "#f1f5f9", "name": "Muted" }
+      ]
     },
-    "styles": {
-      "color": {
-        "background": "var(--wp--preset--color--background)",
-        "text": "var(--wp--preset--color--foreground)"
+    "typography": {
+      "customFontSize": false,
+      "fontFamilies": [
+        {
+          "fontFamily": "Lexend, sans-serif",
+          "slug": "lexend",
+          "name": "Lexend",
+          "fontFace": [
+            {
+              "fontFamily": "Lexend",
+              "fontWeight": "100 900",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/Lexend-VariableFont_wght.woff2"]
+            }
+          ]
+        }
+      ],
+      "fontSizes": [
+        { "slug": "small", "size": "0.875rem", "name": "Small" },
+        { "slug": "medium", "size": "1rem", "name": "Medium" },
+        { "slug": "large", "size": "1.25rem", "name": "Large" },
+        { "slug": "x-large", "size": "2rem", "name": "X-Large" },
+        { "slug": "xx-large", "size": "3.5rem", "name": "XX-Large" }
+      ]
+    },
+    "spacing": {
+      "customSpacingSize": false,
+      "spacingSizes": [
+        { "slug": "20", "size": "0.5rem", "name": "2XS" },
+        { "slug": "30", "size": "1rem", "name": "XS" },
+        { "slug": "40", "size": "1.5rem", "name": "Small" },
+        { "slug": "50", "size": "2rem", "name": "Medium" },
+        { "slug": "60", "size": "3rem", "name": "Large" },
+        { "slug": "70", "size": "4rem", "name": "XL" },
+        { "slug": "80", "size": "6rem", "name": "2XL" }
+      ]
+    },
+    "layout": {
+      "contentSize": "800px",
+      "wideSize": "1280px"
+    },
+    "appearanceTools": true
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--background)",
+      "text": "var(--wp--preset--color--foreground)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--lexend)",
+      "fontSize": "var(--wp--preset--font-size--medium)",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--lexend)",
+          "fontWeight": "700",
+          "lineHeight": "1.2"
+        }
       },
-      "typography": {
-        "fontFamily": "var(--wp--preset--font-family--lexend)",
-        "fontSize": "var(--wp--preset--font-size--medium)",
-        "lineHeight": "1.6"
-      },
-      "elements": {
-        "heading": {
-          "typography": {
-            "fontFamily": "var(--wp--preset--font-family--lexend)",
-            "fontWeight": "700",
-            "lineHeight": "1.2"
-          }
-        },
-        "link": {
-          "color": {
-            "text": "var(--wp--preset--color--primary)"
-          }
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--primary)"
         }
       }
     }
   }
+}

@@ -6,3 +6,671 @@
   design.
   Text Domain: simplified-wp
   */
+
+/* =========================================
+     HEADER
+     ========================================= */
+
+.site-header {
+  border-bottom: 1px solid #e2e8f0;
+  padding-block: 1.5rem;
+  background-color: var(--wp--preset--color--background);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Inner container - matches "How it works" width */
+.site-header__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Site title */
+.site-header .wp-block-site-title {
+  margin: 0;
+  font-size: var(--wp--preset--font-size--large);
+  font-weight: 700;
+}
+
+.site-header .wp-block-site-title a {
+  text-decoration: none;
+  color: var(--wp--preset--color--foreground);
+}
+
+/* Navigation */
+.site-header .wp-block-navigation {
+  gap: 2rem;
+}
+
+.site-header .wp-block-navigation a {
+  font-size: var(--wp--preset--font-size--medium);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--wp--preset--color--secondary);
+  transition: color 0.2s ease;
+}
+
+.site-header .wp-block-navigation a:hover {
+  color: var(--wp--preset--color--primary);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .site-header {
+    padding-block: 1rem;
+  }
+
+  .site-header__inner {
+    padding-inline: 1rem;
+  }
+
+  .site-header .wp-block-site-title {
+    font-size: var(--wp--preset--font-size--medium);
+  }
+
+  .site-header .wp-block-navigation {
+    gap: 1rem;
+    font-size: var(--wp--preset--font-size--small);
+  }
+}
+
+/* =========================================
+     FOOTER
+     ========================================= */
+
+.site-footer {
+  border-top: 1px solid #e2e8f0;
+  padding-block: 2rem;
+  background-color: var(--wp--preset--color--background);
+  margin-top: 0;
+}
+
+/* Inner container - matches header width */
+.site-footer__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Copyright text */
+.site-footer p {
+  margin: 0;
+  font-size: var(--wp--preset--font-size--small);
+  color: var(--wp--preset--color--secondary);
+  text-align: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .site-footer {
+    padding-block: 1.5rem;
+  }
+
+  .site-footer__inner {
+    padding-inline: 1rem;
+  }
+}
+
+/* =========================================
+     HERO SECTION
+     ========================================= */
+
+.section-hero {
+  padding-block: clamp(4rem, 10vw, 6rem) clamp(2rem, 6vw, 4rem); /* Less bottom padding */
+  padding-inline: 1.5rem;
+}
+
+/* Inner container for structure */
+.section-hero__inner {
+  max-width: var(--wp--custom--layout--content-size, 800px);
+  margin-inline: auto;
+
+  /* Subtle left accent for "visible structure" */
+  border-left: 3px solid var(--wp--preset--color--primary);
+  padding-left: 2rem;
+}
+
+/* Mobile: keep centered for readability */
+@media (max-width: 767px) {
+  .section-hero__inner {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+/* Tablet and up: left-align for directness */
+@media (min-width: 768px) {
+  .section-hero__inner {
+    text-align: left;
+  }
+}
+
+/* Headline: bold, confident, generous sizing */
+.section-hero h1 {
+  font-size: var(--wp--preset--font-size--xx-large); /* 3.5rem */
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 767px) {
+  .section-hero h1 {
+    font-size: var(--wp--preset--font-size--x-large); /* 2rem on mobile */
+  }
+}
+
+/* Supporting text: clear hierarchy */
+.section-hero p {
+  font-size: var(--wp--preset--font-size--large); /* 1.25rem */
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  color: var(--wp--preset--color--secondary);
+}
+
+/* =========================================
+     HOW IT WORKS SECTION
+     ========================================= */
+
+.section-how {
+  padding-block: clamp(2rem, 6vw, 4rem) clamp(4rem, 10vw, 6rem); /* Less top, normal bottom */
+  padding-inline: 1.5rem;
+  background-color: var(--wp--preset--color--muted);
+}
+
+/* Section heading */
+.section-how > h2 {
+  text-align: center;
+  font-size: var(--wp--preset--font-size--x-large); /* 2rem */
+  font-weight: 700;
+  margin-bottom: 3rem;
+  letter-spacing: -0.01em;
+}
+
+/* Columns container */
+.section-how .wp-block-columns {
+  max-width: 1200px;
+  margin-inline: auto;
+  gap: 2rem;
+}
+
+/* Individual step column */
+.section-how .wp-block-column {
+  background-color: var(--wp--preset--color--background);
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.section-how .wp-block-column:hover {
+  border-color: var(--wp--preset--color--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Add step numbers using CSS counters */
+.section-how .wp-block-columns {
+  counter-reset: step-counter;
+}
+
+.section-how .wp-block-column::before {
+  counter-increment: step-counter;
+  content: counter(step-counter);
+
+  /* Large, bold number */
+  display: block;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--wp--preset--color--primary);
+  opacity: 0.15;
+  margin-bottom: 1rem;
+}
+
+/* Step heading */
+.section-how .wp-block-column h3 {
+  font-size: var(--wp--preset--font-size--large); /* 1.25rem */
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  color: var(--wp--preset--color--foreground);
+}
+
+/* Step description */
+.section-how .wp-block-column p {
+  font-size: var(--wp--preset--font-size--medium);
+  line-height: 1.6;
+  color: var(--wp--preset--color--secondary);
+  margin: 0;
+}
+
+/* Mobile: stack vertically with spacing */
+@media (max-width: 767px) {
+  .section-how .wp-block-columns {
+    gap: 1.5rem;
+  }
+
+  .section-how .wp-block-column {
+    padding: 1.5rem;
+  }
+
+  .section-how > h2 {
+    font-size: var(--wp--preset--font-size--large);
+    margin-bottom: 2rem;
+  }
+}
+
+/* Desktop: add visual connectors between steps */
+@media (min-width: 782px) {
+  .section-how .wp-block-column:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    right: -1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--wp--preset--color--primary);
+    opacity: 0.3;
+    z-index: 1;
+  }
+}
+
+/* =========================================
+     BUTTONS (Direct, No-Nonsense)
+     ========================================= */
+
+.wp-block-button__link,
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: var(--wp--preset--font-size--medium);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px; /* Minimal rounding, not pill-shaped */
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+/* Primary CTA */
+.wp-block-button.is-style-fill .wp-block-button__link,
+.btn--primary {
+  background-color: var(--wp--preset--color--primary);
+  color: white;
+  border-color: var(--wp--preset--color--primary);
+}
+
+.wp-block-button.is-style-fill .wp-block-button__link:hover,
+.btn--primary:hover {
+  background-color: #1d4ed8; /* Slightly darker blue */
+  border-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Outline variant (if needed) */
+.wp-block-button.is-style-outline .wp-block-button__link,
+.btn--outline {
+  background-color: transparent;
+  color: var(--wp--preset--color--primary);
+  border-color: var(--wp--preset--color--primary);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover,
+.btn--outline:hover {
+  background-color: var(--wp--preset--color--primary);
+  color: white;
+}
+
+/* =========================================
+     WHO THIS IS FOR SECTION
+     ========================================= */
+
+.section-who {
+  padding-block: clamp(4rem, 10vw, 6rem);
+  padding-inline: 1.5rem;
+}
+
+/* Section heading */
+.section-who > h2 {
+  text-align: center;
+  font-size: var(--wp--preset--font-size--x-large); /* 2rem */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+/* Intro paragraph */
+.section-who > p {
+  text-align: center;
+  font-size: var(--wp--preset--font-size--large); /* 1.25rem */
+  color: var(--wp--preset--color--secondary);
+  max-width: 50ch;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+/* Columns container */
+.section-who .wp-block-columns {
+  max-width: 1100px;
+  margin-inline: auto;
+  gap: 2rem;
+}
+
+/* Individual columns - add visual containers */
+.section-who .wp-block-column {
+  background-color: var(--wp--preset--color--background);
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+/* Left column (Great fit) - positive styling */
+.section-who .wp-block-column:first-child {
+  border-color: #10b981; /* Green */
+  background-color: #f0fdf4; /* Very light green tint */
+}
+
+.section-who .wp-block-column:first-child h3 {
+  color: #047857; /* Dark green */
+}
+
+/* Right column (Not for you) - negative styling */
+.section-who .wp-block-column:last-child {
+  border-color: #ef4444; /* Red */
+  background-color: #fef2f2; /* Very light red tint */
+}
+
+.section-who .wp-block-column:last-child h3 {
+  color: #b91c1c; /* Dark red */
+}
+
+/* Column headings */
+.section-who .wp-block-column h3 {
+  font-size: var(--wp--preset--font-size--large); /* 1.25rem */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+/* List styling */
+.section-who ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.section-who li {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 0; /* Prevent WordPress from adding top margin */
+  line-height: 1.6;
+  position: relative;
+  font-size: var(--wp--preset--font-size--medium);
+}
+
+/* Custom checkmarks for "Great fit" list */
+.section-who .wp-block-column:first-child li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: #10b981; /* Green */
+  font-size: 1.25rem;
+}
+
+/* Custom X marks for "Not for you" list */
+.section-who .wp-block-column:last-child li::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: #ef4444; /* Red */
+  font-size: 1.25rem;
+}
+
+.section-who li:last-child {
+  margin-bottom: 0;
+}
+
+.section-who li p {
+  margin: 0;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 781px) {
+  .section-who .wp-block-columns {
+    gap: 1.5rem;
+  }
+
+  .section-who .wp-block-column {
+    padding: 1.5rem;
+  }
+
+  .section-who > h2 {
+    font-size: var(--wp--preset--font-size--large);
+  }
+
+  .section-who > p {
+    font-size: var(--wp--preset--font-size--medium);
+    margin-bottom: 2rem;
+  }
+}
+
+/* =========================================
+     FAQ SECTION
+     ========================================= */
+
+.section-faq {
+  padding-block: clamp(4rem, 10vw, 6rem);
+  padding-inline: 1.5rem;
+}
+
+/* Inner container - narrow pattern */
+.section-faq > * {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+/* Section heading */
+.section-faq > h2 {
+  text-align: center;
+  font-size: var(--wp--preset--font-size--x-large); /* 2rem */
+  font-weight: 700;
+  margin-bottom: 3rem;
+  letter-spacing: -0.01em;
+}
+
+/* Accordion container */
+.section-faq .wp-block-details {
+  margin-bottom: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: var(--wp--preset--color--background);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.section-faq .wp-block-details:hover {
+  border-color: var(--wp--preset--color--primary);
+}
+
+/* Last accordion - no bottom margin */
+.section-faq .wp-block-details:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Question (summary) styling */
+.section-faq summary {
+  font-size: var(--wp--preset--font-size--large); /* 1.25rem */
+  font-weight: 600;
+  padding: 1.5rem 3rem 1.5rem 1.5rem;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  color: var(--wp--preset--color--foreground);
+  transition: all 0.2s ease;
+  border: none;
+}
+
+/* Remove default marker */
+.section-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.section-faq summary::marker {
+  display: none;
+}
+
+/* Hover state for question */
+.section-faq summary:hover {
+  color: var(--wp--preset--color--primary);
+}
+
+/* Custom expand/collapse icon */
+.section-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--wp--preset--color--primary);
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+/* Rotate icon when open */
+.section-faq details[open] summary::after {
+  content: "−";
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Answer content */
+.section-faq details > *:not(summary) {
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  line-height: 1.7;
+  color: var(--wp--preset--color--secondary);
+}
+
+/* Paragraph spacing in answers */
+.section-faq details p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.section-faq details p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .section-faq > h2 {
+    font-size: var(--wp--preset--font-size--large);
+    margin-bottom: 2rem;
+  }
+
+  .section-faq summary {
+    font-size: var(--wp--preset--font-size--medium);
+    padding: 1.25rem 2.5rem 1.25rem 1.25rem;
+  }
+
+  .section-faq summary::after {
+    right: 1.25rem;
+    font-size: 1.5rem;
+  }
+
+  .section-faq details > *:not(summary) {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+}
+
+/* =========================================
+     FINAL CTA SECTION
+     ========================================= */
+
+.section-cta {
+  padding-block: clamp(4rem, 10vw, 6rem);
+  padding-inline: 1.5rem;
+  background-color: var(--wp--preset--color--foreground);
+  color: var(--wp--preset--color--background);
+  text-align: center;
+}
+
+/* Constrained inner content */
+.section-cta > * {
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+/* Headline: Bold and direct */
+.section-cta h2 {
+  font-size: var(--wp--preset--font-size--x-large); /* 2rem */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: var(--wp--preset--color--background);
+  letter-spacing: -0.01em;
+}
+
+/* Supporting text */
+.section-cta p {
+  font-size: var(--wp--preset--font-size--large); /* 1.25rem */
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2rem;
+}
+
+/* CTA Button: Inverted for contrast */
+.section-cta .wp-block-button__link {
+  background-color: var(--wp--preset--color--background);
+  color: var(--wp--preset--color--foreground);
+  border-color: var(--wp--preset--color--background);
+  font-weight: 700;
+  padding: 1.125rem 2.5rem;
+  font-size: var(--wp--preset--font-size--large);
+}
+
+.section-cta .wp-block-button__link:hover {
+  background-color: var(--wp--preset--color--primary);
+  color: white;
+  border-color: var(--wp--preset--color--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.section-cta .wp-block-buttons {
+  justify-content: center;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .section-cta {
+    padding-block: clamp(3rem, 8vw, 4rem);
+    text-align: center;
+  }
+
+  .section-cta h2 {
+    font-size: var(--wp--preset--font-size--large);
+    margin-bottom: 1rem;
+  }
+
+  .section-cta p {
+    font-size: var(--wp--preset--font-size--medium);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-cta .wp-block-button__link {
+    padding: 1rem 2rem;
+    font-size: var(--wp--preset--font-size--medium);
+  }
+}

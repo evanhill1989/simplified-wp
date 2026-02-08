@@ -31,3 +31,7 @@ Detailed guidance lives in `/docs/architecture/`:
 - [WordPress Engineering](docs/architecture/wordpress-engineering.md) — Templates, PHP, child theme overrides
 - [Gutenberg Boundaries](docs/architecture/gutenberg-boundaries.md) — Editor controls, block restrictions
 - [Workflow Bridge](docs/architecture/workflow-bridge.md) — Decision rules for editor vs CSS vs PHP
+
+Detailed brand guidance lives in `/docs/brand/`:
+
+- [Brand Guidelines](docs/brand/brand-guidelines.md) — Decision rules for on brand styling
